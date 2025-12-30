@@ -5,9 +5,8 @@ const month = String(d.getMonth() + 1).padStart(2, "0");
 const day = String(d.getDate()).padStart(2, "0"); //Padestart: Adds 0 before x
 
 const formatted = `${year}-${month}-${day}`;
-console.log(formatted);
 
-document.querySelector("#date").innerHTML = formatted;
+document.querySelector("#date").textContent = formatted;
 
 //Buttons Activeness
 const buttons = document.querySelectorAll(".toggle-btn");
@@ -19,11 +18,14 @@ buttons.forEach((btn) => {
   });
 });
 
-const buttons2 = document.querySelectorAll(".toggle-btn-audience");
+const audienceButtons = document.querySelectorAll(".toggle-btn-audience");
 
-buttons2.forEach((btn) => {
+audienceButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
-    buttons2.forEach((b) => b.classList.remove("active"));
+    audienceButtons.forEach((b) => b.classList.remove("active"));
     btn.classList.add("active");
+    console.log(btn);
   });
 });
+
+
