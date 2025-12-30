@@ -1,27 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutureMe Clone</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <header>
-    <h1><span>Letter</span> <span id="randomh1">Late</span></h1>
-    
-</header>
-    <p>
-      A letter from <span id="date"></span>
-    </p>
+    <header class="main-header">
+        <div class="container header-flex">
+            <h1 class="logo">Letter<span>Later</span></h1>
+        </div>
+    </header>
 
-  <textarea name="letter" >Dear Future,</textarea>
-  </body>
+    <main class="container">
+        <h2 class="page-title">A letter from <span></span>Dec 30, 2025</h2>
+        
+        <div class="editor-grid">
+            <section class="letter-section">
+                <div class="textarea-container">
+                    <textarea placeholder="Dear FutureMe,"></textarea>
+                </div>
+            </section>
+
+            <aside class="settings-section">
+                <div class="setting-group">
+                    <div class="button-row">
+                        <button class="toggle-btn active">6 months</button>
+                        <button class="toggle-btn">1 year</button>
+                        <button class="toggle-btn">3 years</button>
+                        <button class="toggle-btn">5 years</button>
+                        <button class="toggle-btn">10 years</button>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <label>Select your <strong>audience</strong></label>
+                    <div class="button-row">
+                        <button class="toggle-btn active">Private</button>
+                        <button class="toggle-btn">Public, but anonymous</button>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <label>Make sure you <strong>get your letter</strong></label>
+                    <div class="input-wrapper">
+                        <span>Mail:</span>
+                        <input type="email" placeholder="Please enter an email">
+                    </div>
+                </div>
+
+                <button class="send-btn">Send to the Future</button>
+            </aside>
+        </div>
+    </main>
+
+</body>
 </html>
