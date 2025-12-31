@@ -1,10 +1,10 @@
 //Date for top line [hero sec]
 const d = new Date();
-const year = d.getFullYear();
-const month = String(d.getMonth() + 1).padStart(2, "0");
-const day = String(d.getDate()).padStart(2, "0"); //Padestart: Adds 0 before x
-
-const formatted = `${year}-${month}-${day}`;
+const formatted = d.toLocaleDateString("en-US", {
+  month: "short",
+  day: "2-digit",
+  year: "numeric",
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector("#date").textContent = formatted;
@@ -18,7 +18,7 @@ buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
     buttons.forEach((b) => b.classList.remove("active"));
     btn.classList.add("active");
-    selectedDelieveryButton = btn.textContent.trim(); //Button to Pass at B.E
+    selectedDelieveryButton = btn.textContent.trim().toLocaleLowerCase(); //Button to Pass at B.E
   });
 });
 
@@ -28,7 +28,7 @@ audienceButtons.forEach((btn) => {
   btn.addEventListener("click", () => {
     audienceButtons.forEach((b) => b.classList.remove("active"));
     btn.classList.add("active");
-    selectedAudienceButton = btn.textContent.trim(); //Button to Pass at B.E
+    selectedAudienceButton = btn.textContent.trim().toLocaleLowerCase(); //Button to Pass at B.E
   });
 });
 
@@ -38,9 +38,27 @@ const finalButton = document.querySelector("#send-btn");
 finalButton.addEventListener("click", () => {
   //email middleware
   const emailInput = document.querySelector("#mail").value;
-  console.log(emailInput);
-  console.log(selectedDelieveryButton);
-  if (!emailInput) alert("Error!");
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailRegex.test(emailInput)) {
+    alert("Invalid email format");
+    return;
+  }
+
+  //Letter Text middle ware
+  const letterText = document.querySelector("textarea").value;
+  if (!letterText.trim()) {
+    alert("Please Enter your email!");
+    return;
+  }
+
+  const payload = {
+    email: emailInput,
+    letter: letterText,
+    delivery: selectedDelieveryButton,
+    audience: selectedAudienceButton,
+    createdAt: new Date().toISOString(),
+  };
 
   // console.log("Done!");
 });
