@@ -1,23 +1,26 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+//Letter Schema MongoDb
 const letterSchema = new Schema({
-    email: {
-        t
-    },
-    letter: String,
-    delivery: String,
-    audience: String,
-    createdAt: String
+  email: {
+    type: String,
+    require: true,
+  },
+  letter: {
+    type: String,
+    require: true,
+  },
+  delivery: {
+    type: String,
+    require: true,
+  },
+  audience: {
+    type: String,
+    require: true,
+  },
+  createdAt: {
+    type: String,
+    require: true,
+  },
 });
-
-
-
-/*
-Schema:
-email: emailInput,
-    letter: letterText,
-    delivery: selectedDelieveryButton,
-    audience: selectedAudienceButton,
-    createdAt: new Date().toISOString(),
-    */
