@@ -24,3 +24,8 @@ const letterSchema = new Schema({
     require: true,
   },
 });
+
+
+// letter => will search for plural in Db 
+const Letter = mongoose.model("letter", letterSchema);
+module.exports = Letter;
