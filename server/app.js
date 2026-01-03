@@ -1,3 +1,4 @@
+require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
@@ -19,7 +20,6 @@ app.use(express.json());
 // routes
 app.use("/letters", lettersRoute);
 
-// health check (optional but clutch)
 app.get("/", (req, res) => {
   res.send("Server is running");
 });
