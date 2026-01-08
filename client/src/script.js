@@ -69,7 +69,7 @@ finalButton.addEventListener("click", async () => {
   };
 
   try {
-    const response = await fetch("http://localhost:2745/letters", {
+    const response = await fetch("https://letterlate.onrender.com/letters", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
