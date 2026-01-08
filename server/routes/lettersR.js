@@ -23,7 +23,7 @@ router.post("/", async (req, res) => {
 
     let deliverAt = new Date(now);
     deliverAt.setMinutes(deliverAt.getMinutes() + 1);
-    
+
     const newLetter = new LetterF({
       email,
       letter,
@@ -46,6 +46,7 @@ router.post("/", async (req, res) => {
       message: "Error saving letter",
     });
   }
+
 });
 
 module.exports = router;
